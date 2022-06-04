@@ -11,6 +11,7 @@ A continuación se describe la estructura del proyecto:
 - **samconfig.toml** - Configuración de los stacks de Staging y Producción
 - **template.yaml** - Template que define los recursos AWS de la aplicación
 - **localEnvironment.json** - Permite el despliegue en local de la aplicación sobreescribiendo el endpoint de dynamodb para que apunte contra el docker de dynamo
+
 - **pozuelo-devops** - Contiene diferentes scripts para facilitar los despliegues
 
 
