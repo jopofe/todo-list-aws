@@ -33,5 +33,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Se modifica el fichero samconfig.toml en tiempo de despliegue con la referencia al S3.
 
 ## [1.5.0] - 2022-06-05
+### Added
+- Se consigue desplegar correctamente el entorno STAGING tras la ejecución del pipeline.
+
 ### Changed
 - Se cambian las direcciones S3 a nuevos bucket creados para cada entorno.
