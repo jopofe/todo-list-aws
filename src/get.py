@@ -1,4 +1,4 @@
-## Función de consulta de tarea
+# Función de consulta de tarea
 
 import json
 import decimalencoder
