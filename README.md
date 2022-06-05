@@ -164,4 +164,7 @@ Para borrar la apliación y eliminar los stacks creados ejecutar los siguientes 
 aws cloudformation delete-stack --stack-name todo-list-aws-staging
 aws cloudformation delete-stack --stack-name todo-list-aws-production
 ```
-
+## Para borrar el default habría que ejecutar el siguiente comando. Se debe especificar la región.
+```bash
+aws cloudformation delete-stack --stack-name todo-list-aws --region us-east-1
+```
