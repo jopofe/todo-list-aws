@@ -1,0 +1,13 @@
+voclabs:~/todo-list-aws (feature) $ curl -X POST https://r023gvv2n4.execute-api.us-east-1.amazonaws.com/Prod/todos --data '{ "text": "Learn Serverless" }'
+{"statusCode": 200, "body": "{\"id\": \"bd5cf1ac-e4ce-11ec-9954-26a382e6ea7d\", \"text\": \"Learn Serverless\", \"checked\": false, \"createdAt\": \"1654433713.142542\", \"updatedAt\": \"1654433713.142542\"}"}voclabs:~/todo-list-aws (feature) $ 
+
+voclabs:~/todo-list-aws (feature) $ curl https://r023gvv2n4.execute-api.us-east-1.amazonaws.com/Prod/todos
+[{"checked": false, "createdAt": "1654433713.142542", "text": "Learn Serverless", "id": "bd5cf1ac-e4ce-11ec-9954-26a382e6ea7d", "updatedAt": "1654433713.142542"}]voclabs:~/todo-list-aws (feature) $ 
+
+voclabs:~/todo-list-aws (feature) $ curl https://r023gvv2n4.execute-api.us-east-1.amazonaws.com/Prod/todos/bd5cf1ac-e4ce-11ec-9954-26a382e6ea7d
+{"checked": false, "createdAt": "1654433713.142542", "text": "Learn Serverless", "id": "bd5cf1ac-e4ce-11ec-9954-26a382e6ea7d", "updatedAt": "1654433713.142542"}voclabs:~/todo-list-aws (feature) $ 
+
+voclabs:~/todo-list-aws (feature) $ curl -X PUT https://r023gvv2n4.execute-api.us-east-1.amazonaws.com/Prod/todos/bd5cf1ac-e4ce-11ec-9954-26a382e6ea7d --data '{ "text": "Learn python and more", "checked": true }'                                          
+{"checked": true, "createdAt": "1654433713.142542", "text": "Learn python and more", "id": "bd5cf1ac-e4ce-11ec-9954-26a382e6ea7d", "updatedAt": 1654433858593}voclabs:~/todo-list-aws (feature) $ 
+
+voclabs:~/todo-list-aws (feature) $ curl -X DELETE https://r023gvv2n4.execute-api.us-east-1.amazonaws.com/Prod/todos/bd5cf1ac-e4ce-11ec-9954-26a382e6ea7d

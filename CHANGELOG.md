@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.0.1] - 2022-06-04
 ### Added
-- Carpeta pozuelo-devops que contiene scripts para el despliegue de jenkins y python3.7.
+- Se añade nuevo directorio pozuelo-devops que contiene scripts para el despliegue de jenkins y python3.7.
 
 ## [1.0.2] - 2022-06-04
 ### Changed
@@ -24,3 +24,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Se añaden comentarios a funciones del proyecto.
 - Se añaden comentarios en README.md
+
+## [1.4.0] - 2022-06-05
+### Added
+- Se crean dos archivos de log: APIrequests.log y samDeployDefault.log
+
+### Changed
+- Se modifica el fichero samconfig.toml en tiempo de despliegue con la referencia al S3.
