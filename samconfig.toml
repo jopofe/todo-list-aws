@@ -2,10 +2,9 @@ version = 0.1
 [default]
 [default.deploy]
 [default.deploy.parameters]
-stack_name = "todo-list-aws"
-# s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-18f3x1m8mrjy4" #Incluir bucket propio
-s3_bucket = todo-list-aws-s3-pozuelo-default
-s3_prefix = "todo-list-aws"
+stack_name = "todo-list-aws-default"
+s3_bucket = "todo-list-aws-s3-pozuelo-default" #Incluir bucket propio
+s3_prefix = "todo-list-aws-default"
 region = "us-east-1"
 capabilities = "CAPABILITY_IAM"
 parameter_overrides = "Stage=\"default\""
@@ -16,8 +15,7 @@ confirm_changeset = true
 [staging.deploy]
 [staging.deploy.parameters]
 stack_name = "todo-list-aws-staging"
-# s3_bucket = "aws-sam-cli-managed-staging-samclisourcebucket-XXXXX" #Incluir bucket propio
-s3_bucket = todo-list-aws-s3-pozuelo-staging
+s3_bucket = "todo-list-aws-s3-pozuelo-staging" #Incluir bucket propio
 s3_prefix = "todo-list-aws"
 region = "us-east-1"
 capabilities = "CAPABILITY_IAM"
@@ -28,8 +26,7 @@ image_repositories = []
 [production.deploy]
 [production.deploy.parameters]
 stack_name = "todo-list-aws-production"
-# s3_bucket = "aws-sam-cli-managed-production-samclisourcebucket-XXXXX" #Incluir bucket propio
-s3_bucket = todo-list-aws-s3-pozuelo-production
+s3_bucket = "todo-list-aws-s3-pozuelo-production" #Incluir bucket propio
 s3_prefix = "todo-list-aws"
 region = "us-east-1"
 capabilities = "CAPABILITY_IAM"

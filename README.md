@@ -12,8 +12,8 @@ A continuación se describe la estructura del proyecto:
 - **template.yaml** - Template que define los recursos AWS de la aplicación
 - **localEnvironment.json** - Permite el despliegue en local de la aplicación sobreescribiendo el endpoint de dynamodb para que apunte contra el docker de dynamo
 
-- **pozuelo-devops** - Contiene diferentes scripts para facilitar los despliegues.
-- **pozuelo-logs** - Contiene archivos de logs y salidas de comando.
+- **pozuelo-devops** - Contiene diferentes scripts para facilitar los despliegues
+
 
 ## Despliegue manual de la aplicación SAM en AWS
 
@@ -81,13 +81,9 @@ docker network create sam
 docker run -p 8000:8000 --network sam --name dynamodb -d amazon/dynamodb-local
 
 ## Crear la tabla en local, para poder trabajar localmemte
-# aws dynamodb create-table --table-name local-TodosDynamoDbTable --attribute-definitions AttributeName=id,AttributeType=S --key-schema AttributeName=id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url http://localhost:8000
-
-## Se debe especificar la región para crear la tabla en local
-aws dynamodb create-table --table-name local-TodosDynamoDbTable --attribute-definitions AttributeName=id,AttributeType=S --key-schema AttributeName=id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url http://localhost:8000 --region us-east-1
+aws dynamodb create-table --table-name local-TodosDynamoDbTable --attribute-definitions AttributeName=id,AttributeType=S --key-schema AttributeName=id,KeyType=HASH --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url http://localhost:8000
 
 ## Empaquetar sam
-## El build lo hará utilizando los recursos definidos en "template.yml"
 sam build # también se puede usar sam build --use-container si se dan problemas con las librerías de python
 
 ## Levantar la api en local, en el puerto 8080, dentro de la red de docker sam
@@ -153,7 +149,7 @@ pipelines/common-steps/integration.sh
 Para la implementación del CI/CD de la aplicación se utilizan los siguientes Pipelines:
 *	**PIPELINE-FULL-STAGING**: (PIPELINE-FULL-STAGING/Jenkinsfile) Este pipeline es el encargado de configurar el entorno de staging y ejecutar las pruebas
 *	**PIPELINE-FULL-PRODUCTION**: (PIPELINE-FULL-PRODUCTION/Jenkinsfile) Este pipeline es el encargado de configurar el entorno de production y ejecutar las pruebas
-*	**PIPELINE-FULL-CD**: este pipeline es el encargado de enganchar los pipelines de staging y production, con el objetivo de completar un ciclo de despliegue continuo desde un commit al repositorio de manera automática.
+*	**PIPELINE-FULL-CD**: este pipeline es el encargado de enganchar los pipelines de staging y production,  con el objetivo de completar un ciclo de despliegue continuo desde un commit al repositorio de manera automática.
 
 
 ## Limpieza
@@ -164,7 +160,4 @@ Para borrar la apliación y eliminar los stacks creados ejecutar los siguientes 
 aws cloudformation delete-stack --stack-name todo-list-aws-staging
 aws cloudformation delete-stack --stack-name todo-list-aws-production
 ```
-## Para borrar el default habría que ejecutar el siguiente comando. Se debe especificar la región.
-```bash
-aws cloudformation delete-stack --stack-name todo-list-aws --region us-east-1
-```
+
