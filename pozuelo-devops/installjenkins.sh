@@ -1,5 +1,6 @@
 ## Script Jenkis deployment
 ## Jorge Pozuelo
+#!/bin/bash
 
 # Actualizar listado de paquetes del sistema
 sudo apt-get update

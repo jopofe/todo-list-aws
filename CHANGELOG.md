@@ -12,6 +12,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Carpeta pozuelo-devops que contiene scripts para el despliegue de jenkins y python3.7.
 
-## [1.0.1] - 2022-06-04
+## [1.0.2] - 2022-06-04
 ### Changed
 - Se añaden comentarios a los archivos y funciones del proyecto.
+
+## [1.3.0] - 2022-06-05
+### Added
+- Creación de la carpeta pozuelo-logs/ que incluye los resultados y salidas de comando y logs de servicios.
+- Se añade un script pozuelo-devops/deployLocalSAM.sh para el despliegue local de la aplicación SAM.
+
+### Changed
+- Se añaden comentarios a funciones del proyecto.
+- Se añaden comentarios en README.md

@@ -1,0 +1,14 @@
+voclabs:~ $ docker run -p 8000:8000 --network sam --name dynamodb -d amazon/dynamodb-local
+Unable to find image 'amazon/dynamodb-local:latest' locally
+latest: Pulling from amazon/dynamodb-local
+3a461b3ae562: Pull complete 
+14d349bd5978: Pull complete 
+3e361eec6409: Pull complete 
+Digest: sha256:07e740ad576acdcfdc48676f9a153a93a8e35436ea36942d4c14939caeca8851
+Status: Downloaded newer image for amazon/dynamodb-local:latest
+0a5f473392208fae03c8c86c0b8167757424d19e10423bb1b3071be258c0722b
+
+## Comprobamos que el container se está ejecutando según lo esperado.
+voclabs:~/todo-list-aws/pozuelo-devops (feature) $ docker ps
+CONTAINER ID   IMAGE                   COMMAND                  CREATED             STATUS             PORTS                                       NAMES
+0a5f47339220   amazon/dynamodb-local   "java -jar DynamoDBL…"   About an hour ago   Up About an hour   0.0.0.0:8000->8000/tcp, :::8000->8000/tcp   dynamodb
