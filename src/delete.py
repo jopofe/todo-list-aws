@@ -1,4 +1,4 @@
-## Función de borrado de tarea
+# Función de borrado de tarea
 
 import todoList
 
