@@ -9,7 +9,7 @@ import functools
 from botocore.exceptions import ClientError
 # from botocore.exceptions import HTTPClientError
 # from botocore.exceptions import ParamValidationError
-from botocore.exceptions import ConnectTimeoutError
+# from botocore.exceptions import ConnectTimeoutError
 
 
 def get_table(dynamodb=None):
@@ -67,8 +67,8 @@ def translated_item(key, language, dynamodb=None):
 #    except ParamValidationError as error:
 #        raise ValueError('The parameters you provided are incorrect: {}'
 #                         .format(error))
-    except ConnectTimeoutError as error:
-        print(error.response['Error']['Message'])
+#    except ConnectTimeoutError as error:
+#        print(error.response['Error']['Message'])
     else:
         print('Result getTranslatedItem:'+str(result))
         if 'Item' in result:
