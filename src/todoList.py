@@ -49,6 +49,7 @@ def translated_item(key, language, dynamodb=None):
                 'id': key
             }
         )
+        # El idioma de origen es auto
         translated_text = translate.translate_text(Text=result['translatedItem']["text"], SourceLanguageCode="auto", TargetLanguageCode=language)
         result['translatedItem']["text"] = translated_text.get('TranslatedText')
     except ClientError as error:
