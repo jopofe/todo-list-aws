@@ -7,6 +7,7 @@ import uuid
 import json
 import functools
 from botocore.exceptions import ClientError
+from botocore.exceptions import ParamValidationError
 
 
 def get_table(dynamodb=None):
@@ -57,6 +58,8 @@ def translated_item(key, language, dynamodb=None):
         result['Item']["text"] = translated_item.get('TranslatedText')
 
     except ClientError as error:
+        print(error.response['Error']['Message'])
+    except ParamValidationError as error:
         print(error.response['Error']['Message'])
     else:
         print('Result getTranslatedItem:'+str(result))
