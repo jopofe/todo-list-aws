@@ -65,7 +65,7 @@ def translated_item(key, language, dynamodb=None):
     except ClientError as error:
         print(error.response['Error']['Message'])
     except ClientError as error:
-        print(error.response['Error']['Message'])        
+        print(error.response['Error']['Message'])
     else:
         print('Result getTranslatedItem:'+str(result))
         if 'Item' in result:
