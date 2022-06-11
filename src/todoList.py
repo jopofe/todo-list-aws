@@ -43,7 +43,7 @@ def get_item(key, dynamodb=None):
 
 def translated_item(key, language, dynamodb=None):
     table = get_table(dynamodb)
-    boto3.HTTPClientError()
+#    boto3.HTTPClientError()
     translate = boto3.client(service_name='translate',
                              region_name='us-east-1', use_ssl=True)
     try:
