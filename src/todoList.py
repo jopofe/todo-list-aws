@@ -7,7 +7,7 @@ import uuid
 import json
 import functools
 from botocore.exceptions import ClientError
-from botocore.exceptions import ParamValidationError
+from botocore.exceptions import HTTPClientError
 
 
 def get_table(dynamodb=None):
@@ -43,6 +43,7 @@ def get_item(key, dynamodb=None):
 
 def translated_item(key, language, dynamodb=None):
     table = get_table(dynamodb)
+    connection = boto3.HTTPClientError()
     translate = boto3.client(service_name='translate',
                              region_name='us-east-1', use_ssl=True)
     try:
@@ -59,7 +60,7 @@ def translated_item(key, language, dynamodb=None):
 
     except ClientError as error:
         print(error.response['Error']['Message'])
-    except ParamValidationError as error:
+    except HTTPClientError as error:
         print(error.response['Error']['Message'])
     else:
         print('Result getTranslatedItem:'+str(result))
