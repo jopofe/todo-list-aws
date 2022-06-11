@@ -44,6 +44,17 @@ def translated_item(key, language, dynamodb=None):
     table = get_table(dynamodb)
     translate = boto3.client(service_name='translate',
                              region_name='us-east-1', use_ssl=True)
+    print("FALLO1")
+    print("FALLO2")
+    print("FALLO3")
+    print("FALLO4")
+    print("FALLO5")
+    print("FALLO6")
+    print("FALLO7")
+    print("FALLO8")
+    print("FALLO9")
+    print("FALLO10")
+    print("FALLO11")
     try:
         result = table.get_item(
             Key={
@@ -55,18 +66,6 @@ def translated_item(key, language, dynamodb=None):
                                                    SourceLanguageCode="auto",
                                                    TargetLanguageCode=language)
         result['Item']["text"] = translated_item.get('TranslatedText')
-
-        print("FALLO1")
-        print("FALLO2")
-        print("FALLO3")
-        print("FALLO4")
-        print("FALLO5")
-        print("FALLO6")
-        print("FALLO7")
-        print("FALLO8")
-        print("FALLO9")
-        print("FALLO10")
-        print("FALLO11")
 
     except ClientError as error:
         print(error.response['Error']['Message'])
