@@ -57,3 +57,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.8.1] - 2022-06-11
 ### Changed
 - Fix de la función "translate.py".
+
+## [1.8.2] - 2022-06-11
+### Changed
+- Fix de los test.
