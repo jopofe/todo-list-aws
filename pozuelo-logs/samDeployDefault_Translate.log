@@ -1,0 +1,99 @@
+voclabs:~/todo-list-aws (feature) $ sam deploy template.yaml --config-env defaultUploading to todo-list-aws-default/a010b81b4e1fd3a7732473cdbeaf7319  461630 / 461630  (100.00%)
+File with same data already exists at todo-list-aws-default/a010b81b4e1fd3a7732473cdbeaf7319, skipping upload
+File with same data already exists at todo-list-aws-default/a010b81b4e1fd3a7732473cdbeaf7319, skipping upload
+File with same data already exists at todo-list-aws-default/a010b81b4e1fd3a7732473cdbeaf7319, skipping upload
+File with same data already exists at todo-list-aws-default/a010b81b4e1fd3a7732473cdbeaf7319, skipping upload
+File with same data already exists at todo-list-aws-default/a010b81b4e1fd3a7732473cdbeaf7319, skipping upload
+
+        Deploying with following values
+        ===============================
+        Stack name                   : todo-list-aws-default
+        Region                       : us-east-1
+        Confirm changeset            : True
+        Deployment s3 bucket         : todo-list-aws-s3-pozuelo-default
+        Capabilities                 : ["CAPABILITY_IAM"]
+        Parameter overrides          : {"Stage": "default"}
+        Signing Profiles             : {}
+
+Initiating deployment
+=====================
+Uploading to todo-list-aws-default/3972f39f03e7c95cb26035c8a6919bd4.template  4897 / 4897  (100.00%)
+
+Waiting for changeset to be created..
+
+CloudFormation stack changeset
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Operation                             LogicalResourceId                     ResourceType                          Replacement                         
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+* Modify                              CreateTodoFunction                    AWS::Lambda::Function                 False                               
+* Modify                              DeleteTodoFunction                    AWS::Lambda::Function                 False                               
+* Modify                              GetTodoFunction                       AWS::Lambda::Function                 False                               
+* Modify                              ListTodosFunction                     AWS::Lambda::Function                 False                               
+* Modify                              ServerlessRestApi                     AWS::ApiGateway::RestApi              False                               
+* Modify                              TranslateTodoFunction                 AWS::Lambda::Function                 False                               
+* Modify                              UpdateTodoFunction                    AWS::Lambda::Function                 False                               
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+Changeset created successfully. arn:aws:cloudformation:us-east-1:278596239178:changeSet/samcli-deploy1654943871/45a8f077-242b-4a43-91e7-132b8059e1c1
+
+
+Previewing CloudFormation changeset before deployment
+======================================================
+Deploy this changeset? [y/N]: y
+
+2022-06-11 10:38:03 - Waiting for stack create/update to complete
+
+CloudFormation events from changeset
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+ResourceStatus                        ResourceType                          LogicalResourceId                     ResourceStatusReason                
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+UPDATE_IN_PROGRESS                    AWS::Lambda::Function                 ListTodosFunction                     -                                   
+UPDATE_IN_PROGRESS                    AWS::Lambda::Function                 DeleteTodoFunction                    -                                   
+UPDATE_IN_PROGRESS                    AWS::Lambda::Function                 GetTodoFunction                       -                                   
+UPDATE_IN_PROGRESS                    AWS::Lambda::Function                 UpdateTodoFunction                    -                                   
+UPDATE_IN_PROGRESS                    AWS::Lambda::Function                 CreateTodoFunction                    -                                   
+UPDATE_IN_PROGRESS                    AWS::Lambda::Function                 TranslateTodoFunction                 -                                   
+UPDATE_COMPLETE                       AWS::Lambda::Function                 GetTodoFunction                       -                                   
+UPDATE_COMPLETE                       AWS::Lambda::Function                 TranslateTodoFunction                 -                                   
+UPDATE_COMPLETE                       AWS::Lambda::Function                 UpdateTodoFunction                    -                                   
+UPDATE_COMPLETE                       AWS::Lambda::Function                 DeleteTodoFunction                    -                                   
+UPDATE_COMPLETE                       AWS::Lambda::Function                 CreateTodoFunction                    -                                   
+UPDATE_COMPLETE                       AWS::Lambda::Function                 ListTodosFunction                     -                                   
+UPDATE_COMPLETE_CLEANUP_IN_PROGRESS   AWS::CloudFormation::Stack            todo-list-aws-default                 -                                   
+UPDATE_COMPLETE                       AWS::CloudFormation::Stack            todo-list-aws-default                 -                                   
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+CloudFormation outputs from deployed stack
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Outputs                                                                                                                                                
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Key                 TranslateTodoApi                                                                                                                   
+Description         API Gateway endpoint URL for ${opt:stage} stage for Translate TODO                                                                 
+Value               https://q5jqi5idob.execute-api.us-east-1.amazonaws.com/Prod/todos/{id}/{language}                                                  
+
+Key                 BaseUrlApi                                                                                                                         
+Description         Base URL of API                                                                                                                    
+Value               https://q5jqi5idob.execute-api.us-east-1.amazonaws.com/Prod                                                                        
+
+Key                 DeleteTodoApi                                                                                                                      
+Description         API Gateway endpoint URL for ${opt:stage} stage for Delete TODO                                                                    
+Value               https://q5jqi5idob.execute-api.us-east-1.amazonaws.com/Prod/todos/{id}                                                             
+
+Key                 ListTodosApi                                                                                                                       
+Description         API Gateway endpoint URL for ${opt:stage} stage for List TODO                                                                      
+Value               https://q5jqi5idob.execute-api.us-east-1.amazonaws.com/Prod/todos                                                                  
+
+Key                 UpdateTodoApi                                                                                                                      
+Description         API Gateway endpoint URL for ${opt:stage} stage for Update TODO                                                                    
+Value               https://q5jqi5idob.execute-api.us-east-1.amazonaws.com/Prod/todos/{id}                                                             
+
+Key                 GetTodoApi                                                                                                                         
+Description         API Gateway endpoint URL for ${opt:stage} stage for Get TODO                                                                       
+Value               https://q5jqi5idob.execute-api.us-east-1.amazonaws.com/Prod/todos/{id}                                                             
+
+Key                 CreateTodoApi                                                                                                                      
+Description         API Gateway endpoint URL for ${opt:stage} stage for Create TODO                                                                    
+Value               https://q5jqi5idob.execute-api.us-east-1.amazonaws.com/Prod/todos/                                                                 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Successfully created/updated stack - todo-list-aws-default in us-east-1

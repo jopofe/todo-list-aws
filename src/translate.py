@@ -7,11 +7,11 @@ import todoList
 
 def translate(event, context):
     # create a response
-    translated_item = todoList.translated_item(event['pathParameters']['id'], event['pathParameters']['language'])
-    if translated_item:
+    item = todoList.translated_item(event['pathParameters']['id'], event['pathParameters']['language'])
+    if item:
         response = {
             "statusCode": 200,
-            "body": json.dumps(translated_item,
+            "body": json.dumps(item,
                                cls=decimalencoder.DecimalEncoder)
         }
     else:
@@ -20,3 +20,4 @@ def translate(event, context):
             "body": ""
         }
     return response
+    
