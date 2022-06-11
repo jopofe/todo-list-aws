@@ -50,16 +50,16 @@ def translated_item(key, language, dynamodb=None):
             }
         )
         # El idioma de origen es auto
-        translated_text = translate.translate_text(Text=result['translatedItem']["text"], SourceLanguageCode="auto", TargetLanguageCode=language)
-        result['translatedItem']["text"] = translated_text.get('TranslatedText')
+        translated_text = translate.translate_text(Text=result['TranslatedItem']["text"], SourceLanguageCode="auto", TargetLanguageCode=language)
+        result['TranslatedItem']["text"] = translated_text.get('TranslatedText')
     except ClientError as error:
         print(error.response['Error']['Message'])
     except Exception as error:
         print(error)
     else:
         print('Result getTranslatedItem:'+str(result))
-        if 'translatedItem' in result:
-            return result['translatedItem']
+        if 'TranslatedItem' in result:
+            return result['TranslatedItem']
 
 
 def get_items(dynamodb=None):
