@@ -8,8 +8,9 @@ import json
 import functools
 from botocore.exceptions import ClientError
 # from botocore.exceptions import HTTPClientError
-from botocore.exceptions import ParamValidationError
+# from botocore.exceptions import ParamValidationError
 from botocore.exceptions import ConnectTimeoutError
+
 
 def get_table(dynamodb=None):
     if not dynamodb:
