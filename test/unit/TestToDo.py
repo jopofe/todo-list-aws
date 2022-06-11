@@ -31,7 +31,8 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.is_local = 'true'
         self.uuid = "123e4567-e89b-12d3-a456-426614174000"
         self.text = "Aprender DevOps y Cloud en la UNIR"
-        self.lang = 'fr'
+        self.lang_french = 'fr'
+        self.lang_english = 'en'
 
         from src.todoList import create_todo_table
         self.table = create_todo_table(self.dynamodb)
@@ -108,12 +109,12 @@ class TestDatabaseFunctions(unittest.TestCase):
             responseGet['text'])
         print ('End: test_get_todo')
         
-    def test_translate_todo(self):
+    def test_translate_todo_french(self):
         print ('---------------------')
-        print ('Start: test_translate_todo')
+        print ('Start: test_translate_todo_french')
         from src.todoList import get_item
         from src.todoList import put_item
-        from src.todoList import translated_item
+        from src.todoList import translated_item_french
 
         # Testing file functions
         # Table mock
@@ -122,9 +123,33 @@ class TestDatabaseFunctions(unittest.TestCase):
         idItem = json.loads(responsePut['body'])['id']
         print ('Id item:' + idItem)
         self.assertEqual(200, responsePut['statusCode'])
-        responseGet = translated_item(
+        responseGet = translated_item_french(
                 idItem,
-                self.lang,
+                self.lang_french,
+                self.dynamodb)
+        print ('Response Get:' + str(responseGet))
+        self.assertEqual(
+            self.text,
+            responseGet['text'])
+        print ('End: test_translate_todo')
+        
+    def test_translate_todo_english(self):
+        print ('---------------------')
+        print ('Start: test_translate_todo_english')
+        from src.todoList import get_item
+        from src.todoList import put_item
+        from src.todoList import translated_item_english
+
+        # Testing file functions
+        # Table mock
+        responsePut = put_item(self.text, self.dynamodb)
+        print ('Response put_item:' + str(responsePut))
+        idItem = json.loads(responsePut['body'])['id']
+        print ('Id item:' + idItem)
+        self.assertEqual(200, responsePut['statusCode'])
+        responseGet = translated_item_english(
+                idItem,
+                self.lang_english,
                 self.dynamodb)
         print ('Response Get:' + str(responseGet))
         self.assertEqual(
