@@ -34,7 +34,6 @@ def get_item(key, dynamodb=None):
 
     except ClientError as e:
         print(e.response['Error']['Message'])
-        print("Error: La función get_item no ha finalizado de forma correcta")
     else:
         print('Result getItem:'+str(result))
         if 'Item' in result:
@@ -59,7 +58,6 @@ def translated_item(key, language, dynamodb=None):
 
     except ClientError as error:
         print(error.response['Error']['Message'])
-        print("Error: La función translated_item ha fallado")
     else:
         print('Result getTranslatedItem:'+str(result))
         if 'Item' in result:
