@@ -131,32 +131,9 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertEqual(
             self.text,
             responseGet['text'])
-        print ('End: test_translate_todo')
-        
-    def test_translate_todo_english(self):
-        print ('---------------------')
-        print ('Start: test_translate_todo_english')
-        from src.todoList import get_item
-        from src.todoList import put_item
-        from src.todoList import translated_item_english
+        print ('End: test_translate_todo_french')
 
-        # Testing file functions
-        # Table mock
-        responsePut = put_item(self.text, self.dynamodb)
-        print ('Response put_item:' + str(responsePut))
-        idItem = json.loads(responsePut['body'])['id']
-        print ('Id item:' + idItem)
-        self.assertEqual(200, responsePut['statusCode'])
-        responseGet = translated_item_english(
-                idItem,
-                self.lang_english,
-                self.dynamodb)
-        print ('Response Get:' + str(responseGet))
-        self.assertEqual(
-            self.text,
-            responseGet['text'])
-        print ('End: test_translate_todo')
-    
+
     def test_list_todo(self):
         print ('---------------------')
         print ('Start: test_list_todo')
