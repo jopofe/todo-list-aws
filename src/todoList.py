@@ -7,7 +7,7 @@ import uuid
 import json
 import functools
 from botocore.exceptions import ClientError
-from botocore.exceptions import HTTPClientError
+# from botocore.exceptions import HTTPClientError
 from botocore.exceptions import ParamValidationError
 
 
@@ -64,7 +64,8 @@ def translated_item(key, language, dynamodb=None):
 #    except HTTPClientError as error:
 #        print(error.response['Error']['Message'])
     except ParamValidationError as error:
-        raise ValueError('The parameters you provided are incorrect: {}'.format(error))
+        raise ValueError('The parameters you provided are incorrect: {}'
+                         .format(error))
     else:
         print('Result getTranslatedItem:'+str(result))
         if 'Item' in result:
