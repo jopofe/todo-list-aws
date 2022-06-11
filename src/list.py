@@ -15,9 +15,8 @@ def list(event, context):
             "statusCode": 200,
             "body": json.dumps(result, cls=decimalencoder.DecimalEncoder)
         }
-        
+
     except ClientError as e:
         print(e.response['Error']['Message'])
     else:
         return response
-        
