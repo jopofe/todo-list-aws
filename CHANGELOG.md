@@ -49,3 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.7.0] - 2022-06-10
 ### Added
 - Se añaden logs del despliegue del pipeline FULL-CD en pozuelo-logs/outputPIPELINE-FULL-CD.log
+
+## [1.8.0] - 2022-06-10
+### Added
+- Se añaden la nueva función "translate.py".
