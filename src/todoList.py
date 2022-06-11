@@ -56,6 +56,19 @@ def translated_item(key, language, dynamodb=None):
                                                    TargetLanguageCode=language)
         result['Item']["text"] = translated_item.get('TranslatedText')
 
+print('Result getTranslatedItem:'+str(result))
+print('Result getTranslatedItem:'+str(result))
+print('Result getTranslatedItem:'+str(result))
+print('Result getTranslatedItem:'+str(result))
+print('Result getTranslatedItem:'+str(result))
+print('Result getTranslatedItem:'+str(result))
+print('Result getTranslatedItem:'+str(result))
+print('Result getTranslatedItem:'+str(result))
+print('Result getTranslatedItem:'+str(result))
+print('Result getTranslatedItem:'+str(result))
+print('Result getTranslatedItem:'+str(result))
+print('Result getTranslatedItem:'+str(result))
+
     except ClientError as error:
         print(error.response['Error']['Message'])
     else:
