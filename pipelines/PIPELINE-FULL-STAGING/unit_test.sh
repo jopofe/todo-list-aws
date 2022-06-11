@@ -9,6 +9,6 @@ python test/unit/TestToDo.py
 pip show coverage
 # coverage run --include=src/todoList.py test/unit/TestToDo.py
 # añadimos el parámetro -m para obtener más información
-coverage -m run --include=src/todoList.py test/unit/TestToDo.py
+coverage run -m --include=src/todoList.py test/unit/TestToDo.py
 coverage report
 coverage xml
