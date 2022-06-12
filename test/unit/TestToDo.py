@@ -176,7 +176,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('Start: atest_update_todo_error')
         from src.todoList import put_item
         from src.todoList import update_item
-        updated_text = "Aprender más cosas que DevOps y Cloud en la UNIR"
+        updated_text = "Aprender mas cosas que DevOps y Cloud en la UNIR"
         # Testing file functions
         # Table mock
         responsePut = put_item(self.text, self.dynamodb)
