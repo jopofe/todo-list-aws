@@ -156,7 +156,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         from src.todoList import put_item
         from src.todoList import update_item
         from src.todoList import get_item
-        updated_text = "Aprender mas cosas que DevOps y Cloud en la UNIR"
+        updated_text = "Aprender más cosas que DevOps y Cloud en la UNIR"
         # Testing file functions
         # Table mock
         responsePut = put_item(self.text, self.dynamodb)
@@ -176,7 +176,7 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('Start: atest_update_todo_error')
         from src.todoList import put_item
         from src.todoList import update_item
-        updated_text = "Aprender mas cosas que DevOps y Cloud en la UNIR"
+        updated_text = "Aprender más cosas que DevOps y Cloud en la UNIR"
         # Testing file functions
         # Table mock
         responsePut = put_item(self.text, self.dynamodb)
@@ -228,14 +228,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         # Testing file functions
         self.assertRaises(TypeError, delete_item("", self.dynamodb))
         print ('End: test_delete_todo_error')
-
-    def test_get_table_one(self):
-        print ('---------------------')
-        print ('Start: test_get_table_one')
-        from src.todoList import get_table
-        # Testing file functions
-        self.assertEqual(self.table, get_table(self.dynamodb))
-        print ('End: test_get_table_one')
 
 
 if __name__ == '__main__':
