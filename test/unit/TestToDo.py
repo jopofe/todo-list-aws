@@ -45,10 +45,8 @@ def mock_table(self):
     print ('DB mockeada')
     from src.todoList import get_table
     from unittest.mock import Mock
-    
     self.table = get_table(self.dynamodb)
     self.table = Mock()
-    
     from botocore.exceptions import ClientError
     self.dbException = ClientError({'Error': {'Code': 'MockedException', 'Message': 'DB mockeada'}},
         os.environ['DYNAMODB_TABLE'])
@@ -76,6 +74,16 @@ def mock_table(self):
         self.assertIn(tableName, self.table.name)
         #self.assertIn('todoTable', self.table_local.name)
         print ('End: test_table_exists')
+
+    def test_table_exists_error(self):
+        print ('---------------------')
+        print ('Start: test_table_exists_error')
+        from src.todoList import get_table
+        try:
+            get_table(None)
+        except Exception as ex:
+            print(ex)
+        print ('End: test_table_exists_error')
 
     def test_put_todo(self):
         print ('---------------------')
