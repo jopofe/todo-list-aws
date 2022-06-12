@@ -141,13 +141,10 @@ def mock_table(self):
         from src.todoList import get_item
         from src.todoList import get_table
         from unittest.mock import Mock
-
         mock_table(self)
         self.table.get_item.side_effect = self.dbException
         print ('DB mockeada for get_item()')
-        
         self.assertRaises(Exception, get_item('foo', self.dynamodb))
-       
         print ('End: test_get_todo_error')
 
 
