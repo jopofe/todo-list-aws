@@ -70,3 +70,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - Subida hasta 81% de coverage
 - Se modifica el Jenkinsfile hasta el 80%
+
+## [1.9.0] - 2022-06-12
+### Added
+- Se añade el diagrama (draw.io) de la arquitectura propuesta en el apartado B.

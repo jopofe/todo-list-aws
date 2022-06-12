@@ -13,7 +13,8 @@ A continuación se describe la estructura del proyecto:
 - **localEnvironment.json** - Permite el despliegue en local de la aplicación sobreescribiendo el endpoint de dynamodb para que apunte contra el docker de dynamo
 
 - **pozuelo-devops** - Contiene diferentes scripts para facilitar los despliegues
-
+- **pozuelo-logs** - Contiene diferentes logs para el desarrollo de la práctica
+- **pozuelo-diagrams** - Contiene la solución de la arquitectura alternativa propuesta en el apartado B
 
 ## Despliegue manual de la aplicación SAM en AWS
 
