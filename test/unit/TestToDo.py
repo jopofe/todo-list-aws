@@ -77,17 +77,6 @@ def mock_table(self):
         #self.assertIn('todoTable', self.table_local.name)
         print ('End: test_table_exists')
 
-    def test_table_exists_error(self):
-        print ('---------------------')
-        print ('Start: test_table_exists_error')
-        from src.todoList import get_table
-        try:
-            get_table(None)
-
-        except Exception as ex:
-            print(ex)
-        print ('End: test_table_exists_error')
-
     def test_put_todo(self):
         print ('---------------------')
         print ('Start: test_put_todo')
