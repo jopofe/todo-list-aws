@@ -10,22 +10,6 @@ import os
 import json
 
 @mock_dynamodb2
-def mock_table(self):
-    print ('---------------------')
-    print ('Mocking table')
-    from src.todoList import get_table
-    from unittest.mock import Mock
-    
-    self.table = get_table(self.dynamodb)
-    self.table = Mock()
-    print ('Table Mocked')
-    
-    from botocore.exceptions import ClientError
-    self.dbException = ClientError({'Error': {'Code': 'MockedException', 'Message': 'This is a Mock'}},
-        os.environ['DYNAMODB_TABLE'])
-    print ('DB mock Exception ready')
-
-@mock_dynamodb2
 class TestDatabaseFunctions(unittest.TestCase):
     def setUp(self):
         print ('---------------------')
@@ -54,6 +38,22 @@ class TestDatabaseFunctions(unittest.TestCase):
         #self.table_local = create_todo_table()
         print ('End: setUp')
 
+# Creamos otro mock nuevo
+@mock_dynamodb2
+def mock_table(self):
+    print ('---------------------')
+    print ('DB mockeada')
+    from src.todoList import get_table
+    from unittest.mock import Mock
+    
+    self.table = get_table(self.dynamodb)
+    self.table = Mock()
+    
+    from botocore.exceptions import ClientError
+    self.dbException = ClientError({'Error': {'Code': 'MockedException', 'Message': 'DB mockeada'}},
+        os.environ['DYNAMODB_TABLE'])
+    print ('Exception DB MOCK ready')
+
     def tearDown(self):
         print ('---------------------')
         print ('Start: tearDown')
@@ -76,7 +76,17 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertIn(tableName, self.table.name)
         #self.assertIn('todoTable', self.table_local.name)
         print ('End: test_table_exists')
-        
+
+    def test_table_exists_error(self):
+        print ('---------------------')
+        print ('Start: test_table_exists_error')
+        from src.todoList import get_table
+        try:
+            get_table(None)
+
+        except Exception as ex:
+            print(ex)
+        print ('End: test_table_exists_error')
 
     def test_put_todo(self):
         print ('---------------------')
@@ -124,7 +134,7 @@ class TestDatabaseFunctions(unittest.TestCase):
             responseGet['text'])
         print ('End: test_get_todo')
 
-
+# Utilizamos nuestro MOCK
     def test_get_todo_error(self):
         print ('---------------------')
         print ('Start: test_get_todo_error')
@@ -134,7 +144,7 @@ class TestDatabaseFunctions(unittest.TestCase):
 
         mock_table(self)
         self.table.get_item.side_effect = self.dbException
-        print ('Table mocked for get_item()')
+        print ('DB mockeada for get_item()')
         
         self.assertRaises(Exception, get_item('foo', self.dynamodb))
        
