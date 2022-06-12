@@ -125,22 +125,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         print ('End: test_get_todo')
 
 
-    def test_get_todo_error(self):
-        print ('---------------------')
-        print ('Start: test_get_todo_error')
-        from src.todoList import get_item
-        from src.todoList import get_table
-        from unittest.mock import Mock
-
-        mock_table(self)
-        self.table.get_item.side_effect = self.dbException
-        print ('Table mocked for get_item()')
-        
-        self.assertRaises(Exception, get_item('foo', self.dynamodb))
-       
-        print ('End: test_get_todo_error')
-
-
     def test_translate_todo(self):
         print ('---------------------')
         print ('Start: test_translate_todo')
