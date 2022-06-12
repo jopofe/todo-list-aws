@@ -237,23 +237,6 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertEqual(self.table, get_table(self.dynamodb))
         print ('End: test_get_table_one')
 
-    def test_get_table_two(self):
-        print ('---------------------')
-        print ('Start: test_get_table_two')
-        from src.todoList import get_table
-        # Testing file functions
-        self.assertRaises(Exception, get_table(None))
-        print ('End: test_get_table_two')
-
-    def test_get_table_tree(self):
-        print ('---------------------')
-        print ('Start: test_get_table_two')
-        from src.todoList import get_table
-        # Testing file functions
-        os.environ['ENDPOINT_OVERRIDE']="http://localhost:8000/"
-        self.assertRaises(Exception, get_table(None))
-        print ('End: test_get_table_two')
-
 
 if __name__ == '__main__':
     unittest.main()
