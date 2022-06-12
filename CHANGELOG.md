@@ -65,3 +65,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.8.3] - 2022-06-12
 ### Changed
 - Subida hasta 76.62% de coverage
+
+## [1.8.4] - 2022-06-12
+### Changed
+- Subida hasta 81% de coverage
+- Se modifica el Jenkinsfile hasta el 80%
