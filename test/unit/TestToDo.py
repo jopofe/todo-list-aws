@@ -261,6 +261,10 @@ class TestDatabaseFunctions(unittest.TestCase):
         self.assertRaises(TypeError, delete_item("", self.dynamodb))
         print ('End: test_delete_todo_error')
 
+
+# Creamos otro mock diferente con menos parámetros definidos
+# y sin llegar a crear la DB como en el mock dado de inicio
+# Posteriormente repetimos test para cubrir más
 @mock_dynamodb2
 class TestDatabaseFunctionsError(unittest.TestCase):
     def setUp(self):
