@@ -109,7 +109,7 @@ class TestDatabaseFunctions(unittest.TestCase):
             responseGet['text'])
         print ('End: test_get_todo')
 
-
+# Creamos test unitario de la función translate
     def test_translate_todo(self):
         print ('---------------------')
         print ('Start: test_translate_todo')
@@ -265,50 +265,6 @@ class TestDatabaseFunctionsError(unittest.TestCase):
         self.assertRaises(Exception, put_item("", self.dynamodb))
         self.assertRaises(Exception, put_item("", self.dynamodb))
         print ('End: test_put_todo_error')
-
-    def test_update_todo_error(self):
-        print ('---------------------')
-        print ('Start: atest_update_todo_error')
-        from src.todoList import put_item
-        from src.todoList import update_item
-        self.text = "Aprender DevOps y Cloud en la UNIR"
-        self.uuid = "123e4567-e89b-12d3-a456-426614174000"
-        updated_text = "Aprender más cosas que DevOps y Cloud en la UNIR"
-        # Testing file functions
-        # Table mock
-        responsePut = put_item(self.text, self.dynamodb)
-        print ('Response PutItem' + str(responsePut))
-        self.assertRaises(
-            Exception,
-            update_item(
-                updated_text,
-                "",
-                "false",
-                self.dynamodb))
-        self.assertRaises(
-            TypeError,
-            update_item(
-                "",
-                self.uuid,
-                "false",
-                self.dynamodb))
-        self.assertRaises(
-            Exception,
-            update_item(
-                updated_text,
-                self.uuid,
-                "",
-                self.dynamodb))
-        print ('End: atest_update_todo_error')
-
-
-    def test_delete_todo_error(self):
-        print ('---------------------')
-        print ('Start: test_delete_todo_error')
-        from src.todoList import delete_item
-        # Testing file functions
-        self.assertRaises(TypeError, delete_item("", self.dynamodb))
-        print ('End: test_delete_todo_error')
 
 
 if __name__ == '__main__':
